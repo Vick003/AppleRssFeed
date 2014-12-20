@@ -1,0 +1,44 @@
+body {
+    width: 100%;
+    margin: auto;
+    background: #282829;
+}
+
+.jumbotron {
+    position: relative;
+    left: 175px;
+    width: 1024px;
+    background-image: url('http://www.visualparadox.com/images/no-linking-allowed-main/celluloid.jpg');
+    background-repeat: no-repeat;
+   
+        
+        
+      
+}
+.jumbotron h1 {
+    font-family: Indie Flower;
+    color: #baba17;
+    text-align: center;
+    
+}
+
+#instruction {
+    font-family: Indie Flower;
+    color: #baba17;
+}
+
+#info-to-submit {
+    text-align: center;
+
+}
+
+
+
+li {
+   float: left;
+    padding-right: 15px;
+
+}
+
+
+

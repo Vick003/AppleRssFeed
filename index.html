@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Practice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link type="text/css" href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="jumbotron">
+
+      <h1>Top Ten Movies</h1>
+      <form id="info-to-submit">
+          <span><p id="instruction">Enter a link for top movie list:</p>
+          <input type="text" ><br><br>
+          <button class="btn btn-success">Send Request</button></span>
+      </form>
+  </div>
+  
+  <ul id = "apps">
+      
+  </ul>
+   
+   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+       var dataRetrieved;
+       var container;
+       
+       
+       $(document).ready(function () {
+            container=$('#apps');
+           
+           $.ajax({
+       //ajax call is used 
+               url:
+                  'https://itunes.apple.com/us/rss/topmovies/limit=10/json',              
+   //make sure json data type is attached to url
+               success: function(data) {
+                console.log(data); 
+   //line above test if data retrieval is success
+                dataRetrieved = data;
+                   presentData();
+               },
+               
+               dataType: 'json'
+           });
+       });
+       
+       function presentData() {
+        for(var i=dataRetrieved.feed.entry.length-1; i>=0;  i--) {
+        var item = dataRetrieved.feed.entry[i];
+            console.log(item);
+            var img = $('<img>').attr('src', item['im:image'][2].label);
+            var li = $('<li>').append(img);
+            container.append(li);
+            
+        }
+       }
+        
+      
+       
+       
+       
+    
+    
+    
+    
+    
+    
+    </script>  
+    
+</body>
+</html>
